@@ -16,3 +16,28 @@ add suggestions about that. However, float routines should follow some basic rul
   only takes one argument, so EUHL should be preserved.
 * Names of float routines should start with `__fp` and end with a short name indicating
   what the routine is. For example, `__fpneg` negates the input float.
+
+## To Do
+We need to optimize division and square roots! Currently, division is using Newton-Raphson
+which is overkill on such small precision, and square roots are directly using Newton's
+method. Square roots should first evaluate at least 8 bits and then implement a very
+optimized version of Newton's method for square roots (using an auxilliary recurrence).
+
+These two routines also directly affect the performance of logarithms, inverse trig, and
+inverse hyperbolics.
+
+We also need:
+* sine
+* cosine
+* tangent
+* exponential
+  * hyperbolic sine
+  * hyperbolic cosine
+  * hyperbolic tangent
+* 2^x
+* 10^x
+* x^y
+* log base 2
+* log base 10
+* log base y
+* Conversion to and from strings
