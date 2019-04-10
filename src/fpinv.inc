@@ -90,8 +90,9 @@ __fpinv: ; CHECK: same(bitcast(uint32_t, pair8_24_t, { out.BC, out.A }),bitcast(
   rra
   sbc hl,hl
   sbc hl,bc
-  ret z
+  jr z,.return_inf
   ld a,$FF
   ld bc,$C00000
+.return_inf:
   pop bc,de,hl,ix
   ret
